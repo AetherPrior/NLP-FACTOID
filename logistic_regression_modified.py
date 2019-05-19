@@ -10,7 +10,7 @@ import numpy as np
 import os
 
 
-path_to_data = "~/Documents/abhinav/"
+path_to_data = "~/Documents/factoid_qa/"
 d = {ord(c): None for c in '''[!"#$%&'()*+,./:;<=>?@[\]^_`{|}~]'''} ##to remove punc
 d[ord('-')] = ' '
 
