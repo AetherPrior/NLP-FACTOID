@@ -95,8 +95,9 @@ clf = LogisticRegression(random_state =42,solver='lbfgs',multi_class ='multinomi
 
 #predict
 
-#y_pred = clf.predict(X_concat_test)
+y_pred = clf.predict(X_concat_test)
+print(y_pred)
 
 #predict_score
-print("Train score: %d" %clf.score(X_concat_train,y_tr))
-print("Test score: %d" %clf.score(X_concat_test,y_te)) 
+print("Train score: %f" %clf.score(X_concat_train,y_tr))
+print("Test score: %f" %clf.score(X_concat_test,y_te)) 
