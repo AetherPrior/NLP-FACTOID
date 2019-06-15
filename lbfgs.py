@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 save_concat = "logistic_regression_concat.joblib"
 save_add = "logistic_regression_add.joblib"
 save_average = "logistic_regression_average.joblib"
 
 
-=======
->>>>>>> 028caef66c3634682281b11a9cb68432e28ec462
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
 from scipy.sparse import hstack,csr_matrix
@@ -13,10 +10,7 @@ from sklearn.model_selection import train_test_split
 
 from imblearn.over_sampling import RandomOverSampler
 
-<<<<<<< HEAD
 from joblib import dump
-=======
->>>>>>> 028caef66c3634682281b11a9cb68432e28ec462
 import pandas as pd
 import numpy as np
 import os
@@ -86,7 +80,6 @@ X_A_te = vect.transform(X_A_te)
 
 X_concat_train = hstack((X_Q_tr, X_A_tr))
 
-<<<<<<< HEAD
 X_add_train = X_Q_tr+X_A_tr
 
 X_average_train = X_add_train/2
@@ -97,17 +90,10 @@ X_add_test = X_Q_te+X_A_te
 
 X_average_test = X_add_test/2
 
-=======
-#print(X_concat_train)
-
-X_concat_test = hstack((X_Q_te, X_A_te))
-
->>>>>>> 028caef66c3634682281b11a9cb68432e28ec462
 #print(X_concat_test)
 
 #print(y_tr)
 
-<<<<<<< HEAD
 y_add_tr = y_tr.copy()
 y_avg_tr = y_tr.copy()
 #to get equal zeroes and ones in order for the machine to actually learn well
@@ -148,24 +134,3 @@ dump(clf_avg,save_average)
 '''0.902114
 Test score: 0.775850
 '''
-=======
-#to get equal zeroes and ones in order for the machine to actually learn well
-ros = RandomOverSampler(random_state=42)
-
-X_concat_train,y_tr = ros.fit_resample(X_concat_train,y_tr)
-
-
-print("Done some other stuff")
-##using lbgfs
-clf = LogisticRegression(random_state =42,solver='lbfgs',multi_class ='multinomial').fit(X_concat_train,y_tr)
-
-
-#predict
-
-y_pred = clf.predict(X_concat_test)
-print(y_pred)
-
-#predict_score
-print("Train score: %f" %clf.score(X_concat_train,y_tr))
-print("Test score: %f" %clf.score(X_concat_test,y_te)) 
->>>>>>> 028caef66c3634682281b11a9cb68432e28ec462
